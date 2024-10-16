@@ -1,0 +1,59 @@
+<section>
+  <!-- Button trigger modal -->
+  <button
+    type="button"
+    class="btn btn-light"
+    data-bs-toggle="modal"
+    data-bs-target="#addTask"
+  >
+    AGREGAR TAREA
+  </button>
+
+  <!-- Modal -->
+  <div
+    class="modal fade"
+    id="addTask"
+    tabindex="-1"
+    aria-labelledby="openModal"
+    aria-hidden="true"
+  >
+    <div class="modal-dialog">
+      <div class="modal-content bg-dark">
+        <div class="modal-header">
+          <h1 class="modal-title fs-5" id="openModal">AGREGAR TAREA</h1>
+          <button
+            type="button"
+            class="btn-close"
+            data-bs-dismiss="modal"
+            aria-label="Close"
+          ></button>
+        </div>
+        <div class="modal-body">
+          <!-- form -->
+          <div class="mb-3">
+            <label for="nombre" class="form-label">RAMA O CAMPO</label>
+            <input type="text" class="form-control" id="nombre" placeholder="html, matematicas, emprendimiento..." [(ngModel)]="nameTask">
+          </div>
+          <div class="mb-3">
+            <label for="descripcion" class="form-label">DESCRIPCIÓN</label>
+            <input type="text" class="form-control" id="descripcion" placeholder="aprender sobre apis" [(ngModel)]="description">
+          </div>
+          <div class="mb-3">
+            <label for="fecha" class="form-label">FECHA DE INICIO</label>
+            <input type="date" class="form-control" id="fecha" [(ngModel)]="date">
+          </div>
+        </div>
+        <div class="modal-footer">
+          <button
+            type="button"
+            class="btn btn-secondary"
+            data-bs-dismiss="modal"
+          >
+            CERAR
+          </button>
+          <button type="button" class="btn btn-primary" (click)="saveTask()">GUARDAR CAMBIOS</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

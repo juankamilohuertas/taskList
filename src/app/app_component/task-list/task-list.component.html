@@ -1,0 +1,25 @@
+<section>
+  <h2>LISTA DE TAREAS</h2>
+  
+    <table class="table table-dark table-hover">
+      <thead>
+        <tr>
+          <th scope="col">#</th>
+          <th scope="col">TAREA</th>
+          <th scope="col">DESCRIPCIÓN</th>
+          <th scope="col">FECHA INICIO</th>
+        </tr>
+      </thead>
+      @for (data of getTaskData ; track $index) {
+      <tbody>
+        <tr>
+          <th scope="row">{{data.id}}</th>
+          <th scope="row">{{data.nameTask}}</th>
+          <th scope="row">{{data.material}}</th>
+          <th scope="row">{{data.check}}</th>
+        </tr>
+      </tbody>
+    }
+    </table>
+  
+</section>
