@@ -1,5 +1,5 @@
 <section>
-  <!-- Button trigger modal -->
+  <!-- Button open modal form -->
   <button
     type="button"
     class="btn btn-light"
@@ -32,15 +32,29 @@
           <!-- form -->
           <div class="mb-3">
             <label for="nombre" class="form-label">RAMA O CAMPO</label>
-            <input type="text" class="form-control" id="nombre" placeholder="html, matematicas, emprendimiento..." [(ngModel)]="nameTask">
+            <input
+              type="text"
+              class="form-control"
+              id="nombre"
+              placeholder="html, matematicas, emprendimiento..."
+              [(ngModel)]="nameTask"
+            />
           </div>
           <div class="mb-3">
             <label for="descripcion" class="form-label">DESCRIPCIÓN</label>
-            <input type="text" class="form-control" id="descripcion" placeholder="aprender sobre apis" [(ngModel)]="description">
+            <input
+              type="text"
+              class="form-control"
+              id="descripcion"
+              placeholder="aprender sobre apis"
+              [(ngModel)]="description"
+            />
           </div>
+
           <div class="mb-3">
-            <label for="fecha" class="form-label">FECHA DE INICIO</label>
-            <input type="date" class="form-control" id="fecha" [(ngModel)]="date">
+            <label for="time" class="form-label">TIEMPO DE META</label>
+            <p class="d-flex justify-content-between" style="font-size: .7rem;"><span>1 DIA</span><span>1 SEMANA</span><span>1 MES</span><span>6 MESES</span><span>1 AÑO</span><span>2 AÑOS</span></p>
+            <input type="range" class="form-range" min="0" max="5" id="time" [(ngModel)]="time" />
           </div>
         </div>
         <div class="modal-footer">
@@ -51,7 +65,9 @@
           >
             CERAR
           </button>
-          <button type="button" class="btn btn-primary" (click)="saveTask()">GUARDAR CAMBIOS</button>
+          <button type="button" class="btn btn-primary" (click)="saveTask()">
+            GUARDAR CAMBIOS
+          </button>
         </div>
       </div>
     </div>

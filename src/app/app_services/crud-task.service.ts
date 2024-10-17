@@ -4,23 +4,40 @@ import { HttpClient } from '@angular/common/http';
 import { ICrudTask } from '../app_models/crud-task';
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class CrudTaskService {
-private readonly _apisTask = environment.apiTask;
-private readonly _httpClient = inject(HttpClient);
+  private readonly _apisTask = environment.apiTask;
+  private readonly _httpClient = inject(HttpClient);
 
-  constructor() { }
+  constructor() {}
 
-  apiTaskPost(nameTask: string, material: string, check: string){
-    return this._httpClient.post<ICrudTask>(this._apisTask,{
-    "nameTask": nameTask,
-    "material": material,
-    "check": check
+  apiTaskPost(nameTask: string, description: string,date: string,time: string, check: string) {
+    return this._httpClient.post<ICrudTask>(this._apisTask, {
+      nameTask: nameTask,
+      description: description,
+      date: date,
+      time: time,
+      check: check,
     });
   }
 
-  apiTaskGet(){
+  apiTaskGet() {
     return this._httpClient.get<ICrudTask[]>(this._apisTask);
+  }
+
+  apiTaskPut(id: number,nameTask: string, description: string,date: string,time: string, check: string) {
+    return this._httpClient.put<ICrudTask[]>(`${this._apisTask}/${id}`, {
+      id: id,
+      nameTask: nameTask,
+      description: description,
+      date: date,
+      time: time,
+      check: check,
+    });
+  }
+
+  apiTaskDelete(id:number) {
+    return this._httpClient.delete<ICrudTask[]>(`${this._apisTask}/${id}`);
   }
 }

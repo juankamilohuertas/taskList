@@ -1,25 +1,49 @@
-<section>
-  <h2>LISTA DE TAREAS</h2>
-  
-    <table class="table table-dark table-hover">
-      <thead>
-        <tr>
-          <th scope="col">#</th>
-          <th scope="col">TAREA</th>
-          <th scope="col">DESCRIPCIÓN</th>
-          <th scope="col">FECHA INICIO</th>
-        </tr>
-      </thead>
-      @for (data of getTaskData ; track $index) {
-      <tbody>
-        <tr>
-          <th scope="row">{{data.id}}</th>
-          <th scope="row">{{data.nameTask}}</th>
-          <th scope="row">{{data.material}}</th>
-          <th scope="row">{{data.check}}</th>
-        </tr>
-      </tbody>
-    }
-    </table>
-  
+<h2>LISTA DE TAREAS</h2>
+<section class="d-flex flex-column-reverse overflow-y-scroll" style="height: 94vh;">
+  @for (data of getTaskData; track $index) {
+    <ul class="list-group mb-3">
+      <li class="list-group-item d-flex align-items-center">
+       <b class="me-2">N°:</b><span>{{$index}}</span>
+      </li>
+      <li class="list-group-item d-flex align-items-center">
+        <b class="me-2">TEMA:</b><span>{{data.nameTask}}</span>
+      </li>
+      <li class="list-group-item d-flex align-items-center">
+        <b class="me-2">DESCRIPCIÓN:</b><span class="text-break">{{data.description}}</span>
+      </li>
+      <li class="list-group-item d-flex align-items-center">
+        <b class="me-2">FECHA INICIO:</b><span class="text-break">{{data.date}}</span>
+      </li>
+      <li class="list-group-item d-flex align-items-center">
+        <b class="me-2">OBJETIVO EN:</b><span class="text-break">{{data.time}}</span>
+      </li>
+      <li class="list-group-item d-flex align-items-center">
+        <b class="me-2">COMPLETADA:</b><span class="text-break">{{data.check}}</span>
+      </li>
+      <li class="list-group-item d-flex align-items-center btn-group btn-group-sm rounded-0 rounded-bottom" role="group" aria-label="Small button group">
+        <button
+            type="button"
+            class="btn btn-outline-primary"
+            (click)="editTask($event, $index)"
+          >
+            EDITAR
+          </button>
+          <button
+            type="button"
+            class="btnSave btn btn-outline-primary"
+            (click)="saveTask($event, data.id, $index)"
+          >
+            GUARDAR
+          </button>
+          <button
+            type="button"
+            class="btn btn-outline-primary"
+            (click)="deleteTask(data.id)"
+          >
+            BORRAR
+          </button>
+      </li>
+    </ul>
+  }
+ 
 </section>

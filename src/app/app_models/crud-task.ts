@@ -1,6 +1,8 @@
 export interface ICrudTask {
     "id": number,
     "nameTask": string,
-    "material": string,
+    "description": string,
+    "date": string,
+    "time": string,
     "check": string
 }
