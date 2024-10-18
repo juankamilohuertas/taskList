@@ -1,9 +1,9 @@
-<h2>LISTA DE TAREAS</h2>
-<section class="d-flex flex-column-reverse overflow-y-scroll" style="height: 94vh;">
+<h2 class="fs-3 display-6">LISTA DE TAREAS</h2>
+<section class="d-flex flex-column overflow-y-scroll" style="height: 94vh;">
   @for (data of getTaskData; track $index) {
     <ul class="list-group mb-3">
       <li class="list-group-item d-flex align-items-center">
-       <b class="me-2">N°:</b><span>{{$index}}</span>
+       <b class="me-2">N°:</b><span>{{$index + 1}}</span>
       </li>
       <li class="list-group-item d-flex align-items-center">
         <b class="me-2">TEMA:</b><span>{{data.nameTask}}</span>
@@ -12,7 +12,10 @@
         <b class="me-2">DESCRIPCIÓN:</b><span class="text-break">{{data.description}}</span>
       </li>
       <li class="list-group-item d-flex align-items-center">
-        <b class="me-2">FECHA INICIO:</b><span class="text-break">{{data.date}}</span>
+        <b class="me-2">FECHA INICIO:</b><span class="text-break">{{data.dateStart}}</span>
+      </li>
+      <li class="list-group-item d-flex align-items-center">
+        <b class="me-2">FECHA FIN:</b><span class="text-break">{{data.dateEnd}}</span>
       </li>
       <li class="list-group-item d-flex align-items-center">
         <b class="me-2">OBJETIVO EN:</b><span class="text-break">{{data.time}}</span>

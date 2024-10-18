@@ -2,7 +2,8 @@ export interface ICrudTask {
     "id": number,
     "nameTask": string,
     "description": string,
-    "date": string,
+    "dateStart": string,
+    "dateEnd": string,
     "time": string,
     "check": string
 }

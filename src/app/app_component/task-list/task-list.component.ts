@@ -1,6 +1,7 @@
 import { Component, inject, OnInit } from '@angular/core';
-import { CrudTaskService } from '../../app_services/crud-task.service';
+import { CrudTaskService } from '../../app_services/crud_task/crud-task.service';
 import { ICrudTask } from '../../app_models/crud-task';
+import { NotificationsService } from '../../app_services/notifications/notifications.service';
 
 @Component({
   selector: 'app-task-list',
@@ -11,6 +12,7 @@ import { ICrudTask } from '../../app_models/crud-task';
 })
 export class TaskListComponent implements OnInit {
   private readonly _crudTaskService = inject(CrudTaskService);
+  private readonly _notificationService = inject(NotificationsService);
 
   getTaskData: ICrudTask[] = [];
   validateChange = false;
@@ -33,10 +35,10 @@ export class TaskListComponent implements OnInit {
   editTask(event: Event, id: number) {
     const elementSelectList = event.target as HTMLElement;
     const itemSelect = elementSelectList.parentElement?.parentElement?.children;
-    
+
     const task = itemSelect![1].children[1];
     const description = itemSelect![2].children[1];
-    
+
     /* content editable true */
     const columnsListTask = [task, description];
     columnsListTask.forEach((element) => {
@@ -60,7 +62,8 @@ export class TaskListComponent implements OnInit {
           id,
           this.editTask(event, id)[0].textContent!,
           this.editTask(event, id)[1].textContent!,
-          this.getTaskData[index].date,
+          this.getTaskData[index].dateStart,
+          this.getTaskData[index].dateEnd,
           this.getTaskData[index].time,
           this.getTaskData[index].check
         )
@@ -104,4 +107,6 @@ export class TaskListComponent implements OnInit {
       }, 1000);
     }
   }
+
+
 }
